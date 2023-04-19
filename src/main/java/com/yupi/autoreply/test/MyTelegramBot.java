@@ -66,9 +66,9 @@ public class MyTelegramBot extends TelegramLongPollingBot {
     public static synchronized MyTelegramBot getInstance() {
         if (instance == null) {
             DefaultBotOptions botOptions = new DefaultBotOptions();
-            botOptions.setProxyHost("127.0.0.1");
-            botOptions.setProxyPort(7890);
-            botOptions.setProxyType(DefaultBotOptions.ProxyType.HTTP);
+//            botOptions.setProxyHost("127.0.0.1");
+//            botOptions.setProxyPort(7890);
+//            botOptions.setProxyType(DefaultBotOptions.ProxyType.HTTP);
             instance = new MyTelegramBot(botOptions);
         }
         return instance;
