@@ -19,10 +19,12 @@ public class OpenAiConfig {
     /**
      * 模型
      */
-    private String model = ModelConstant.TEXT_DAVINCI_003;
+    private String model = ModelConstant.GPT_3_5_TURBO;
 
     /**
      * apiKey
      */
     private String apiKey;
+
+    private Boolean isProxy;
 }

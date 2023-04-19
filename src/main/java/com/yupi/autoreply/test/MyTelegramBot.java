@@ -2,7 +2,6 @@ package com.yupi.autoreply.test;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
 import com.yupi.autoreply.model.ChatCompletion;
 import com.yupi.autoreply.model.ChatMessageRole;
 import com.yupi.autoreply.model.Message;
@@ -42,7 +41,7 @@ public class MyTelegramBot extends TelegramLongPollingBot {
             .connectTimeout(300, TimeUnit.SECONDS)
             .writeTimeout(300, TimeUnit.SECONDS)
             .readTimeout(300, TimeUnit.SECONDS)
-            .proxy(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("127.0.0.1", 7890)))
+//            .proxy(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("127.0.0.1", 7890)))
             .build();
 
     private static final Map<String, Object> payload = new HashMap<String, Object>() {{
@@ -59,7 +58,6 @@ public class MyTelegramBot extends TelegramLongPollingBot {
     private static final String BOT_NAME = "daminghahaBot";
 
     private static MyTelegramBot instance;
-
 
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
