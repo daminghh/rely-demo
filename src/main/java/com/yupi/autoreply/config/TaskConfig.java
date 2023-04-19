@@ -39,21 +39,21 @@ public class TaskConfig implements SchedulingConfigurer {
 
     @Override
     public void configureTasks(ScheduledTaskRegistrar taskRegistrar) {
-        if (BooleanUtils.isTrue(concurrent.getEnable())) {
-            // 如果开启并发，默认并发度为任务数，即全并发，可通过配置更改
-            int size = Optional.ofNullable(concurrent.getSize()).orElse(list.size());
-            taskRegistrar.setScheduler(Executors.newScheduledThreadPool(size));
-        }
-        log.info("--- 任务注册开始 ---");
-        for (int i = 0; i < list.size(); i++) {
-            TaskListItem taskListItem = list.get(i);
-            if (StringUtils.isBlank(taskListItem.getName())) {
-                taskListItem.setName("task" + (i + 1));
-            }
-            taskRegistrar.addCronTask(new JobMediator(taskListItem), taskListItem.getCron());
-            log.info("任务注册成功 {}", taskListItem);
-        }
-        log.info("--- 任务注册结果 ---");
+//        if (BooleanUtils.isTrue(concurrent.getEnable())) {
+//            // 如果开启并发，默认并发度为任务数，即全并发，可通过配置更改
+//            int size = Optional.ofNullable(concurrent.getSize()).orElse(list.size());
+//            taskRegistrar.setScheduler(Executors.newScheduledThreadPool(size));
+//        }
+//        log.info("--- 任务注册开始 ---");
+//        for (int i = 0; i < list.size(); i++) {
+//            TaskListItem taskListItem = list.get(i);
+//            if (StringUtils.isBlank(taskListItem.getName())) {
+//                taskListItem.setName("task" + (i + 1));
+//            }
+//            taskRegistrar.addCronTask(new JobMediator(taskListItem), taskListItem.getCron());
+//            log.info("任务注册成功 {}", taskListItem);
+//        }
+//        log.info("--- 任务注册结果 ---");
     }
 
     @Data

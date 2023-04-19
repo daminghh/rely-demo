@@ -1,16 +1,20 @@
 package com.yupi.autoreply.answerer;
 
+
 import com.yupi.autoreply.api.openai.OpenAiApi;
 import com.yupi.autoreply.api.openai.model.CreateCompletionRequest;
-import com.yupi.autoreply.api.openai.model.CreateCompletionResponse;
+
 import com.yupi.autoreply.config.OpenAiConfig;
-import com.yupi.autoreply.config.ZsxqConfig;
+
+import com.yupi.autoreply.model.ChatCompletion;
+import com.yupi.autoreply.model.ChatMessageRole;
+import com.yupi.autoreply.test.History;
 import com.yupi.autoreply.utils.SpringContextUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * OpenAi 回答者
@@ -19,6 +23,7 @@ import java.util.stream.Collectors;
  * @from <a href="https://yupi.icu">编程导航知识星球</a>
  */
 @Slf4j
+@Service
 public class OpenAiAnswerer implements Answerer {
 
     private final OpenAiApi openAiApi = SpringContextUtils.getBean(OpenAiApi.class);
@@ -32,12 +37,36 @@ public class OpenAiAnswerer implements Answerer {
         request.setModel(openAiConfig.getModel());
         request.setTemperature(0);
         request.setMax_tokens(1024);
-        CreateCompletionResponse response = openAiApi.createCompletion(request, openAiConfig.getApiKey());
-        List<CreateCompletionResponse.ChoicesItem> choicesItemList = response.getChoices();
-        String answer = choicesItemList.stream()
-                .map(CreateCompletionResponse.ChoicesItem::getText)
-                .collect(Collectors.joining());
-        log.info("OpenAiAnswerer 回答成功 \n 答案：{}", answer);
-        return answer;
+
+//        ChatCompletion.Choice.Message response = openAiApi.createCompletion1(request, openAiConfig.getApiKey());
+//        return response.getContent();
+        return null;
     }
+
+    @Override
+    public String doAnswer(String prompt, String chainId) {
+//
+//        CreateCompletionRequest request = new CreateCompletionRequest();
+//        request.setPrompt(prompt);
+//        request.setModel(openAiConfig.getModel());
+//        request.setTemperature(0);
+//        request.setMax_tokens(1024);
+//
+//        List<ChatCompletion.Choice.Message> messages = History.historys.computeIfAbsent(chainId, k -> new ArrayList<>());
+//        messages.add(new ChatCompletion.Choice.Message(ChatMessageRole.USER.value(), prompt));
+//        if (messages.size() == 1) {
+//            StringBuilder systemMessageBuilder = new StringBuilder("I am Dayi's boyfriend, powered by Artificial Intelligence. ");
+//            systemMessageBuilder.append("I can answer your questions and provide some help and advice.");
+//            ChatCompletion.Choice.Message systemMessage = new ChatCompletion.Choice.Message(ChatMessageRole.SYSTEM.value(), systemMessageBuilder.toString());
+//            messages.add(0,systemMessage);
+//        }
+//        ChatCompletion.Choice.Message response = openAiApi.createCompletion1(request, openAiConfig.getApiKey(),History.historys.get(chainId));
+//        messages.add(response);
+////        History.historys.get(chainId).add(response);
+//        History.historys.get(chainId);
+//        return response.getContent();
+        return null;
+    }
+
+
 }

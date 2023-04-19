@@ -2,6 +2,8 @@ package com.yupi.autoreply.exception;
 
 import com.yupi.autoreply.common.ErrorCode;
 
+import java.io.IOException;
+
 /**
  * 自定义异常类
  *
@@ -28,6 +30,11 @@ public class BusinessException extends RuntimeException {
     public BusinessException(ErrorCode errorCode, String message) {
         super(message);
         this.code = errorCode.getCode();
+    }
+
+    public BusinessException(ErrorCode systemError, String s, IOException ioe) {
+        super(s);
+        this.code = systemError.getCode();
     }
 
     public int getCode() {

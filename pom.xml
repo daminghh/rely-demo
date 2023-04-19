@@ -69,6 +69,72 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.telegram</groupId>
+            <artifactId>telegrambots</artifactId>
+            <version>5.3.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.13</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>3.12.13</version>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.theokanning.openai</groupId>-->
+<!--            <artifactId>api</artifactId>-->
+<!--            <version>0.12.0</version>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>com.theokanning.openai</groupId>-->
+<!--            <artifactId>client</artifactId>-->
+<!--            <version>0.12.0</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.theokanning.openai</groupId>-->
+<!--            <artifactId>service</artifactId>-->
+<!--            <version>0.12.0</version>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>com.fasterxml.jackson.core</groupId>-->
+<!--            <artifactId>jackson-annotations</artifactId>-->
+<!--            <version>2.9.0</version>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>com.fasterxml.jackson.core</groupId>-->
+<!--            <artifactId>jackson-databind</artifactId>-->
+<!--            <version>2.14.2</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
+
+
+<!--        <dependency>-->
+<!--            <groupId>com.squareup.retrofit2</groupId>-->
+<!--            <artifactId>retrofit</artifactId>-->
+<!--            <version>2.9.0</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.squareup.retrofit2</groupId>-->
+<!--            <artifactId>adapter-rxjava2</artifactId>-->
+<!--            <version>2.9.0</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.squareup.retrofit2</groupId>-->
+<!--            <artifactId>converter-jackson</artifactId>-->
+<!--            <version>2.9.0</version>-->
+<!--        </dependency>-->
+
+
     </dependencies>
 
     <build>

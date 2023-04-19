@@ -12,4 +12,9 @@ public class DefaultAnswerer implements Answerer {
     public String doAnswer(String prompt) {
         return "抱歉，我不理解您的问题：" + prompt;
     }
+
+    @Override
+    public String doAnswer(String prompt, String chainId) {
+        return null;
+    }
 }

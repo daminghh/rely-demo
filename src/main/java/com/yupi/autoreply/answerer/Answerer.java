@@ -15,4 +15,8 @@ public interface Answerer {
      * @return 回答结果
      */
     String doAnswer(String prompt);
+
+
+    String doAnswer(String prompt, String chainId);
+
 }

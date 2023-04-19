@@ -36,4 +36,6 @@ public class CreateCompletionRequest {
 
     private String stop;
 
+    private String systemPrompt="You are a helpful assistant.";
+
 }
