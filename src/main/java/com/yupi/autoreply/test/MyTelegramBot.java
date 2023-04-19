@@ -33,7 +33,7 @@ public class MyTelegramBot extends TelegramLongPollingBot {
     // 在 BotFather 中获得的 bot token
     private static final String BOT_TOKEN = "6269751823:AAEFgFXylTMaxMSGm_y__P1vNwzk0SxiATk";
 
-    private static final String API_KEY = "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";
+    private static final String API_KEY = "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";
     private static final String  URL = "https://api.openai.com/v1/chat/completions";
 
 
