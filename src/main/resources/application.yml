@@ -14,7 +14,7 @@ server:
 # https://platform.openai.com/docs/api-reference
 openai:
   model: ${OPENAI_MODEL:gpt-3.5-turbo}
-  apiKey: ${OPENAI_API_KEY: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}
+  apiKey: ${OPENAI_API_KEY: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}
 # 知识星球配置
 # https://zsxq.com/
 zsxq:
