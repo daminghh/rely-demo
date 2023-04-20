@@ -2,10 +2,12 @@ package com.yupi.autoreply.test;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.yupi.autoreply.config.OpenAiConfig;
 import com.yupi.autoreply.model.ChatCompletion;
 import com.yupi.autoreply.model.ChatMessageRole;
 import com.yupi.autoreply.model.Message;
 import okhttp3.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.AnswerCallbackQuery;
@@ -19,8 +21,6 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.InetSocketAddress;
-import java.net.Proxy;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -30,10 +30,11 @@ import java.util.concurrent.TimeUnit;
 
 public class MyTelegramBot extends TelegramLongPollingBot {
 
+    @Autowired
+    OpenAiConfig openAiConfig;
     // 在 BotFather 中获得的 bot token
     private static final String BOT_TOKEN = "6269751823:AAEFgFXylTMaxMSGm_y__P1vNwzk0SxiATk";
-
-    private static final String API_KEY = "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";
+//    private static final String API_KEY = "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";
     private static final String  URL = "https://api.openai.com/v1/chat/completions";
 
 
@@ -57,24 +58,14 @@ public class MyTelegramBot extends TelegramLongPollingBot {
     // 这里填写你的 Bot 的名称，如 MyCoolBot
     private static final String BOT_NAME = "daminghahaBot";
 
-    private static MyTelegramBot instance;
 
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
-    public static synchronized MyTelegramBot getInstance() {
-        if (instance == null) {
-            DefaultBotOptions botOptions = new DefaultBotOptions();
-//            botOptions.setProxyHost("127.0.0.1");
-//            botOptions.setProxyPort(7890);
-//            botOptions.setProxyType(DefaultBotOptions.ProxyType.HTTP);
-            instance = new MyTelegramBot(botOptions);
-        }
-        return instance;
+    public  MyTelegramBot(DefaultBotOptions botOptions) {
+        super(new DefaultBotOptions());
     }
 
-    public MyTelegramBot(DefaultBotOptions botOptions) {
-        super(botOptions);
-    }
+
     @Override
     public void onUpdateReceived(Update update) {
         if (update.hasMessage() && update.getMessage().hasText()) {
@@ -171,7 +162,7 @@ public class MyTelegramBot extends TelegramLongPollingBot {
             RequestBody requestBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), jsonRequestData);
             Request request = new Request.Builder()
                     .url(URL)
-                    .addHeader("Authorization", "Bearer " + API_KEY)
+                    .addHeader("Authorization", "Bearer " + "API_KEY")
                     .addHeader("Content-Type", "application/json")
                     .post(requestBody)
                     .build();

@@ -2,25 +2,15 @@ package com.yupi.autoreply.api.openai;
 
 import cn.hutool.http.HttpRequest;
 import cn.hutool.json.JSONUtil;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
 
 import com.yupi.autoreply.api.openai.model.CreateCompletionRequest;
 import com.yupi.autoreply.api.openai.model.CreateCompletionResponse;
 import com.yupi.autoreply.common.ErrorCode;
 import com.yupi.autoreply.exception.BusinessException;
-import com.yupi.autoreply.model.ChatCompletion;
-import com.yupi.autoreply.test.History;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
-import java.io.IOException;
-import java.net.*;
-import java.util.*;
-import java.util.concurrent.TimeUnit;
+
 
 /**
  * OpenAi 接口

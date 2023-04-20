@@ -14,7 +14,7 @@ server:
 # https://platform.openai.com/docs/api-reference
 openai:
   model: ${OPENAI_MODEL:gpt-3.5-turbo}
-  apiKey: ${OPENAI_API_KEY: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}
+  apiKey: ${OPENAI_API_KEY:apiKey}
   isProxy: true
 # 知识星球配置
 # https://zsxq.com/
@@ -34,7 +34,7 @@ task:
   # 任务列表，支持配置多个
   list:
     - name: task1 #任务名
-      monitor: zsxq #监控者
+      monitor: telegram #监控者
       answerer: openai #回答者
       cron: '0/30 * * * * ?' #执行周期
 #    - name: task2

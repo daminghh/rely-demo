@@ -11,6 +11,7 @@ import com.yupi.autoreply.model.ChatMessageRole;
 import com.yupi.autoreply.test.History;
 import com.yupi.autoreply.utils.SpringContextUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -26,9 +27,8 @@ import java.util.List;
 @Service
 public class OpenAiAnswerer implements Answerer {
 
-    private final OpenAiApi openAiApi = SpringContextUtils.getBean(OpenAiApi.class);
-
-    private final OpenAiConfig openAiConfig = SpringContextUtils.getBean(OpenAiConfig.class);
+    @Autowired
+    private OpenAiConfig openAiConfig;
 
     @Override
     public String doAnswer(String prompt) {

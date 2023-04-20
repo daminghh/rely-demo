@@ -26,5 +26,6 @@ public class TaskListItem {
     /**
      * 监控者
      */
-    private String monitor = "zsxq";
+//    private String monitor = "zsxq";
+    private String monitor = "telegram";
 }

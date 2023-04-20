@@ -10,6 +10,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
@@ -27,16 +28,7 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 @EnableAspectJAutoProxy(proxyTargetClass = true, exposeProxy = true)
 @Slf4j
 public class MainApplication implements CommandLineRunner {
-    private static MyTelegramBot myTelegramBot;
     public static void main(String[] args) {
-        try {
-            TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
-            myTelegramBot = MyTelegramBot.getInstance();
-            botsApi.registerBot(myTelegramBot);
-            System.out.println("Bot started!");
-        } catch (TelegramApiException e) {
-            e.printStackTrace();
-        }
         SpringApplication.run(MainApplication.class, args);
     }
 
