@@ -15,7 +15,7 @@ server:
 openai:
   model: ${OPENAI_MODEL:gpt-3.5-turbo}
   apiKey: ${OPENAI_API_KEY:apiKey}
-  isProxy: ${IS_PROXY:false}
+  isProxy: ${IS_PROXY:true}
 # 知识星球配置
 # https://zsxq.com/
 zsxq:
